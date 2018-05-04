@@ -1,0 +1,9 @@
+tarname=`date +%s`
+a=`find ./ZZMJ -name 12-28*.log |grep Server`
+for b in $a
+do
+i=`readlink -f $b`
+aa=`readlink -f $b |awk -F "/" '{print $(NF-5) "-" $(NF-4) "-" $(NF-3) "-" $(NF-2) "-" $(NF-1) "-" $NF}'`
+cp $b $aa
+done
+tar zcvf $tarname.tar.gz *.log && rm -rf *.log && sz $tarname.tar.gz

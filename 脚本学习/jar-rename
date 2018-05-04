@@ -1,0 +1,5 @@
+for i in `ls ./tmp`
+do
+cp ./0/$i ./0/$i\_20180223001
+cp ./tmp/$i ./0/$i
+done

@@ -1,0 +1,8 @@
+db_lobbylog
+tb_playerlog_ 隔天同步
+tb_loginlog_隔天同步
+tb_pactgame_log 每隔一小时同步一次
+----------------------------------
+db_validate
+tb_accout 隔天同步一次
+tb_bind 隔天同步一次

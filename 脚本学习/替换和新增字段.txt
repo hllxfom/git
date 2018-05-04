@@ -1,0 +1,29 @@
+特殊字符替换：sed -i s#\'\"#\"#g coreconfig.xml（把原来的'"用\转译；然后替换成"）;
+
+普通文本替换：sed -i "s/mahuinan/huinanma/g" 'grep mahuinan -rl /www'
+
+新加字段sed -i '/<\/config>/i\<gameserverconfig>\n<server broken_trait = "1" />\n</gameserverconfig>' 
+
+find . -name gameconfig.xml |xargs tar zcvf gameconfig.tar.gz
+
+找出目录下面的配置文件并打包
+
+
+find ./ -name 'coreconfig.xml' | xargs perl -pi -e 's|GameID="117"|GameID="236"|g'
+
+find /home/web/ -name handler.config -exec  sed -i "s/img2\.525678\.net/img2\.008\.net/g" {} \;
+
+{} 是显示执行结果，显示文件等同于 ls -l
+
+\; 是转译分号，程序结束的标志，给 -exec 用的。
+
+find ./ -name DirServer.xml -exec sed -i "s#<config>#<config reloadtime = \"3\">#g" {} \;
+
+屏蔽新搭建游戏设置
+----------------------------------------------------------------------------------------------------------
+find ./ -name coreconfig.xml -exec sed -i "s#GameID=\"176\"#GameID=\"238\"#g" {} \; #有"用\转译一下
+
+-----------------------------------------------------------------------------------------------------------
+find ./ -name gameconfig.xml -exec sed -i "s#</config>
+#<gameserverconfig><server broken_trait = "1" /></gameserverconfig></config>
+#g" {} \;

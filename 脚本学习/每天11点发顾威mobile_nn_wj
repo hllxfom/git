@@ -1,0 +1,19 @@
+#!/bin/bash
+basepath=$(cd `dirname $0`; pwd)
+date1=`date +%Y%m%d`
+timestart=`date -d "-1 days -1 second" +"%s"`
+timestop=`date  +"%s"`
+mail=/home/wolfplus/scripts/mail.py
+#mail_to="2171@microbeam.cn"
+mail_to="2171@microbeam.cn,364027958@qq.com"
+
+ mysql -h mysql -hrds6b3um3fynfev.mysql.rds.aliyuncs.com   -uwolfplus -pwsioftwejfsx  db_mobile_nn -e "select * from tb_wj_momentsreward where m_time between '$timestart' and '$timestop'">${basepath}/${date1}_tb_wj_momentsreward.txt
+
+ mysql -h mysql -hrds6b3um3fynfev.mysql.rds.aliyuncs.com   -uwolfplus -pwsioftwejfsx  db_mobile_nn -e "select * from tb_wj_rollsharerewardlog_task where s_gettime between '$timestart' and '$timestop'">${basepath}/${date1}_tb_wj_rollsharerewardlog_task.txt
+
+
+python ${mail} "${mail_to}" "${date1}_tb_wj_momentsreward"  "${date1}_tb_wj_momentsreward" "${basepath}/${date1}_tb_wj_momentsreward.txt,${basepath}/${date1}_tb_wj_rollsharerewardlog_task.txt"
+
+
+/bin/rm ${basepath}/${date1}_tb_wj_momentsreward.txt ${date1}_tb_wj_rollsharerewardlog_task.txt
+
