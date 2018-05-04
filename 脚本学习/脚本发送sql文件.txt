@@ -1,5 +1,0 @@
-date=`date -d "-1 days" +"%Y%m%d"`
-dir=/home/wolfplus
-mysqldump -hrr-bp1689045jd9ka305.mysql.rds.aliyuncs.com -ujxing -pyxcpvamhyqw db_lobbylog tb_loginlog_${date} >${dir}\tb_loginlog_${date}.sql
-
-scp -P 44405 /home/wolfplus/tb.tar.gz 218.78.214.153:/home/wolfplus/

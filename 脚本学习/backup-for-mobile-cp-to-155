@@ -1,1 +1,0 @@
-rsync -avr /home/wolfplus/backup-for-mobilegame/ wolfplus@218.78.214.155:/home/wolfplus/backup-for-mobilegame/ -e "ssh -p 44405"

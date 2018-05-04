@@ -1,9 +1,0 @@
-#!/bin/bash
-for i in `find /home/wolfplus/sbin/mobilegame/game/bymj/srf/ -name "07-12*"`
-   do
-      name=$(echo $i|awk -F / '{print $7"_"$8"_"$9"_"$10"_"$12}')
-      cp -a $i /tmp/test/$name
-done
-
-
-awk -F / #表示域分隔符是/

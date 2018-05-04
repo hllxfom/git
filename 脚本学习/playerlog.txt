@@ -1,7 +1,0 @@
-date=`date -d "-1 days" +"%Y%m%d"`
-dir=/home/wolfplus
-mysqldump -hrr-bp1689045jd9ka305.mysql.rds.aliyuncs.com -ujxing -pyxcpvamhyqw db_lobbylog tb_playerlog_${date} >${dir}/tb_playerlog_${date}.sql
-
-mysql -h218.78.214.153 -uwolfplus -p"s&h.fdaFDp%#23h%x09t%y=" db_lobbylog < /home/wolfplus/tb_playerlog_${date}.sql
-
-
